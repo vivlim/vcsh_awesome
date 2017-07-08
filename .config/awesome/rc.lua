@@ -281,8 +281,6 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
         {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey,           }, "g", function () awful.spawn("chromium") end,
-              {description = "open a browser", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -304,6 +302,15 @@ globalkeys = gears.table.join(
 --              {description = "select next", group = "layout"}),
 --    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
 --              {description = "select previous", group = "layout"}),
+
+    -- begin viv additions
+    awful.key({ modkey,           }, "g", function () awful.spawn("chromium") end,
+        {description = "open a browser", group = "launcher"}),
+
+    awful.key({ modkey, "Shift"   }, "s", function () awful.spawn("bash -c \"maim -s | xclip -selection clipboard -t image/png\"") end,
+        {description = "clip region to clipboard", group = "launcher"}),
+
+    -- end viv additions
 
     awful.key({ modkey, "Control" }, "n",
               function ()
